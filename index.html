@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Anna Beatriz 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #c9617a;
+    --rose-light: #f2d4db;
+    --rose-dark: #8b3a4f;
+    --cream: #fdf6f0;
+    --brown: #5c3d2e;
+    --gold: #c4956a;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── PARTÍCULAS ── */
+  #particles {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  }
+  .heart {
+    position: absolute;
+    font-size: 14px;
+    animation: floatUp linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.3; }
+    100% { transform: translateY(-10vh) scale(1) rotate(20deg); opacity: 0; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; text-align: center;
+    padding: 2rem;
+    background: radial-gradient(ellipse at 60% 40%, #f9e8ed 0%, var(--cream) 70%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9617a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-badge {
+    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 1.5rem;
+    animation: fadeIn 1s ease both;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: var(--rose-dark);
+    line-height: 1.05;
+    animation: fadeIn 1s ease 0.2s both;
+  }
+  .hero-name em { color: var(--rose); font-style: italic; }
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--gold);
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease 0.4s both;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    font-size: 11px; letter-spacing: 3px; color: var(--rose);
+    animation: bounce 2s ease infinite;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(8px); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SEÇÕES ── */
+  section { padding: 6rem 1.5rem; max-width: 800px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--rose-dark); margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--rose); }
+
+  .prose {
+    font-size: 1.1rem; line-height: 1.9;
+    color: var(--brown); opacity: 0.85;
+  }
+
+  /* ── LINHA DIVISÓRIA ── */
+  .divider {
+    display: flex; align-items: center; gap: 1rem;
+    max-width: 800px; margin: 0 auto; padding: 0 1.5rem;
+    color: var(--rose-light);
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--rose-light);
+  }
+  .divider span { font-size: 1.2rem; }
+
+  /* ── MEMÓRIAS (cards) ── */
+  .memories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .memory-card {
+    background: #fff;
+    border: 1px solid var(--rose-light);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .memory-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(201,97,122,0.12);
+  }
+  .memory-card .date {
+    font-size: 11px; letter-spacing: 2px; color: var(--rose); margin-bottom: 0.5rem;
+  }
+  .memory-card .label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--rose-dark);
+    margin-bottom: 0.5rem;
+  }
+  .memory-card .desc {
+    font-size: 0.9rem; color: var(--brown); opacity: 0.7; line-height: 1.6;
+  }
+  .memory-icon {
+    position: absolute; top: 1rem; right: 1rem;
+    font-size: 1.4rem;
+  }
+
+  /* ── RAZÕES ── */
+  .reasons { counter-reset: reason; }
+  .reason-item {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rose-light);
+  }
+  .reason-item:last-child { border-bottom: none; }
+  .reason-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; color: var(--rose-light);
+    min-width: 48px; line-height: 1;
+    counter-increment: reason;
+  }
+  .reason-text {
+    font-size: 1.05rem; color: var(--brown);
+    opacity: 0.85; line-height: 1.8; padding-top: 4px;
+  }
+
+  /* ── CARTA ── */
+  .letter-wrap {
+    background: #fff;
+    border: 1px solid var(--rose-light);
+    border-radius: 20px;
+    padding: clamp(2rem, 5vw, 4rem);
+    position: relative;
+    box-shadow: 0 4px 40px rgba(201,97,122,0.07);
+  }
+  .letter-wrap::before {
+    content: '"';
+    position: absolute; top: 1rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem; color: var(--rose-light); line-height: 1;
+  }
+  .letter-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    line-height: 2;
+    color: var(--rose-dark);
+    padding-top: 2rem;
+  }
+  .letter-sign {
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 1rem; color: var(--gold); letter-spacing: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    font-size: 0.85rem; color: var(--rose); letter-spacing: 2px;
+  }
+  footer .big-heart {
+    font-size: 3rem; display: block; margin-bottom: 1rem;
+    animation: heartbeat 1.4s ease infinite;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    14%       { transform: scale(1.15); }
+    28%       { transform: scale(1); }
+    42%       { transform: scale(1.1); }
+    70%       { transform: scale(1); }
+  }
+
+  /* ── REVEAL ON SCROLL ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- Partículas de coração -->
+<div id="particles"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-badge">✦ para você ✦</p>
+  <h1 class="hero-name">Anna <em>Beatriz</em></h1>
+  <p class="hero-sub">a minha cacheada mais bonita no mundo inteiro</p>
+  <div class="scroll-hint">descobrir</div>
+</div>
+
+<!-- MEMÓRIAS -->
+<section class="reveal">
+  <p class="section-label">✦ momentos nossos</p>
+  <h2 class="section-title">Nossas <em>memórias</em></h2>
+  <div class="memories">
+
+    <div class="memory-card">
+      <div class="memory-icon"></div>
+      <p class="date">11/03/2026</p>
+      <p class="label">Nosso primeira conversa</p>
+      <p class="desc">graças a melk e o tiktok eu consegui falar e entender porque a minha princesa estava no hospital.</p>
+    </div>
+
+    <div class="memory-card">
+      <div class="memory-icon"></div>
+      <p class="date">22/03/2026</p>
+      <p class="label">Quando demos o nosso primeiro beijo</p>
+      <p class="desc">Além de eu ter me apaixonado por vc antes de qualquer contato físico nosso, o nosso primeiro beijo foi mágico.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><span>♡</span></div>
+
+<!-- RAZÕES -->
+<section class="reveal">
+  <p class="section-label">✦ do fundo do meu coração</p>
+  <h2 class="section-title">Por que eu te <em>amo</em></h2>
+  <div class="reasons">
+
+    <div class="reason-item">
+      <span class="reason-num">01</span>
+      <p class="reason-text">Eu amo como você consegue iluminar qualquer lugar onde entra. O seu sorriso, amor você tem um poder absurdo de transformar o meu pior dia em algo leve. Amar você é como viver sob o sol; tudo fica mais claro e cheio de vida quando você está por perto.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">02</span>
+      <p class="reason-text">Eu amo o fato de que, além de minha namorada, você é a minha melhor amiga. Eu sei que posso contar com você para as maiores loucuras ou para os silêncios mais confortáveis. Amar você é ter a certeza de que eu nunca mais estarei sozinho em todos os momentos.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">03</span>
+      <p class="reason-text">Eu amo os seus detalhes que ninguém mal percebe em você o seu jeito de pensar, as suas manias e a força que você carrega no nome e na alma. Você é a mistura perfeita de doçura e determinação, e eu me sinto um cara de sorte por ser quem tem o privilégio de conhecer cada camada sua.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">04</span>
+      <p class="reason-text">Eu amo a forma como você cuida de mim e como me faz sentir seguro. O seu abraço é o meu lugar favorito no mundo. É na paz do seu carinho que eu encontro o meu equilíbrio e a vontade de construir um futuro inteiro ao seu lado.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">05</span>
+      <p class="reason-text">Eu amo você porque você me faz querer ser alguém melhor todos os dias. Você não só me aceita como eu sou, mas me inspira a crescer. O meu amor por você é também um amor pela vida que a gente está criando juntos.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><span>♡</span></div>
+
+<!-- CARTA -->
+<section class="reveal">
+  <p class="section-label">✦ minha carta para você</p>
+  <h2 class="section-title">Uma <em>mensagem</em></h2>
+  <div class="letter-wrap">
+    <p class="letter-text">
+      Anna Beatriz,<br><br>
+      Escrevo isso só para te lembrar do quanto você é essencial na minha vida. Às vezes, na correria do dia a dia, a gente acaba não dizendo o óbvio, mas a verdade é que eu te amo por mil motivos diferentes.
+
+Amo o jeito que você me olha, a paz que o seu sorriso me traz e a forma como o meu mundo parece fazer muito mais sentido quando você está por perto. Você não é apenas a minha namorada; você é o meu porto seguro, a pessoa que me inspira a ser melhor e aquela com quem eu quero compartilhar cada pequena conquista.
+
+Obrigado por ser exatamente quem você é. Eu te amo hoje, amanhã e muito mais do que as palavras conseguem explicar.
+
+Com todo o meu amor, 🌹
+    </p>
+    <p class="letter-sign">com todo o meu amor,<br><strong>SEU NOME AQUI</strong></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="big-heart">♥</span>
+  feito com muito amor · só para você, Anna Beatriz
+</footer>
+
+<script>
+  // Partículas flutuantes
+  const container = document.getElementById('particles');
+  const symbols = ['♥','❤','♡','🌸','✿'];
+  for (let i = 0; i < 25; i++) {
+    const el = document.createElement('span');
+    el.className = 'heart';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (10 + Math.random() * 14) + 'px';
+    el.style.animationDuration = (8 + Math.random() * 14) + 's';
+    el.style.animationDelay = (Math.random() * 10) + 's';
+    el.style.color = ['#c9617a','#e8a0b0','#d4789a','#f2b5c5'][Math.floor(Math.random()*4)];
+    container.appendChild(el);
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => io.observe(r));
+</script>
+</body>
+</html>
